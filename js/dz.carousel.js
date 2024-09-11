@@ -16,12 +16,12 @@ jQuery(document).ready(function() {
     // Get Started ==========
     if(jQuery('.get-started').length > 0){
 		var swiperGetStarted = new Swiper('.get-started', {
-			speed: 2000,
+			speed: 1500,
 			parallax: true,
 			slidesPerView: "auto",
 			spaceBetween: 0,
-			autoplay: false,
-			loop:false,
+			autoplay: true,
+			loop: false,
 			pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
