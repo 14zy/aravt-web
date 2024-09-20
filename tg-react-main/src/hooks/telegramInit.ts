@@ -41,6 +41,7 @@ interface TelegramWebApp {
             username?: string;
             language_code?: string;
         };
+        start_param?: string;
     };
     sendData: (data: string) => void;
     close: () => void;
