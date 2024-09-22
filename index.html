@@ -44,43 +44,9 @@
 		tele.expand(); //Expands the app on the users' phone to 100% height
 	</script>
 
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const supabaseUrl = 'https://ubmmxwqtvimfixqplzsf.supabase.co';
-			const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVibW14d3F0dmltZml4cXBsenNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjYyMDI1MjcsImV4cCI6MjA0MTc3ODUyN30.fq5Iyev10jXB9LU_b7PwIt-M7pSeI4QcZLg4GT6HtxM'; //public
-			const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-			async function fetchAravts() {
-                const { data, error } = await supabase
-                    .from('aravts')
-                    .select('*');
-                if (error) {
-                    console.error('Error fetching aravts:', error);
-                } else {
-                    console.log('Fetched aravts:', data);
-                    // displayAravts(data);  // Display aravts in the DOM
-                }
-            }
-
-			fetchAravts();
-
-			// function displayAravts(aravts) {
-            //     const aravtsList = document.getElementById('aravts-list');
-            //     aravts.forEach(aravt => {
-            //         const aravtItem = document.createElement('div');
-            //         aravtItem.textContent = aravt.name; // Adjust based on your table structure
-            //         aravtsList.appendChild(aravtItem);
-            //     });
-            // }
-
-		});
-	</script>
-
 </head>
 <body data-theme-color="color-blue">
 <div class="page-wraper"> 
-
-    <!-- id="aravts-list" -->
 
 	<!-- Preloader -->
 	<div id="preloader">
@@ -99,7 +65,7 @@
 		<div class="welcome-area">
 			<div class="join-area">
 				<div class="swiper get-started driver-onboarding" style="background-image: none;">
-					
+					<br>
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
 							<div class="slide-info container">
@@ -165,8 +131,7 @@
 					<a href="https://db.aravt.io" class="btn-link flex-1">Get help</a>
 					<div class="" id="ton-connect"></div>    	
 					<!-- <a href="#" class="btn btn-primary btn-sm">Login</a> -->
-				</div>
-				
+				</div>	
 			</div>
 			
 		</div>
@@ -200,17 +165,18 @@
 	// tonConnectUI.uiOptions = {
     //   twaReturnUrl: 'https://t.me/YOUR_APP_NAME'
   	// };
+
 	//https://docs.ton.org/develop/dapps/ton-connect/web
 
 
-
-	// window.addEventListener('ton-connect-ui-connection-started', (event) => {
-   	// 	 console.log('Transaction init', event.detail);
-	// });
-	//   https://github.com/ton-connect/sdk/tree/main/packages/ui#add-the-return-strategy
-	
+	window.addEventListener('ton-connect-ui-connection-started', (event) => {
+   		//  console.log('Transaction init', event.detail);
+			setTimeout(function() {
+        		window.location.href = "aravts.html";
+    		}, 5000); 
+	});
+	//   https://github.com/ton-connect/sdk/tree/main/packages/ui#add-the-return-strategy	
   </script>
-
 
 </body>
 </html>

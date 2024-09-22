@@ -37,7 +37,6 @@
 
 	<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
-
 	<script> 
 		const tele = window.Telegram.WebApp; //Initializes the TELEGRAM BOT and
 		//Gets the user's Telegram ID from the Telegram API
@@ -58,115 +57,80 @@
                     console.error('Error fetching aravts:', error);
                 } else {
                     console.log('Fetched aravts:', data);
-                    // displayAravts(data);  // Display aravts in the DOM
+                    displayAravts(data);  // Display aravts in the DOM
                 }
             }
 
 			fetchAravts();
 
-			// function displayAravts(aravts) {
-            //     const aravtsList = document.getElementById('aravts-list');
-            //     aravts.forEach(aravt => {
-            //         const aravtItem = document.createElement('div');
-            //         aravtItem.textContent = aravt.name; // Adjust based on your table structure
-            //         aravtsList.appendChild(aravtItem);
-            //     });
-            // }
+			function displayAravts(aravts) {
+                const aravtsList = document.getElementById('aravts-list');
+                aravts.forEach(aravt => {
+                    const aravtItem = document.createElement('li');
+					aravtItem.className = 'list-group-item';
+                    aravtItem.textContent = aravt.name + " – " + aravt.description; // Adjust based on your table structure
+                    aravtsList.appendChild(aravtItem);
+                });
+            }
 
 		});
 	</script>
 
 </head>
 <body data-theme-color="color-blue">
-<div class="page-wraper"> 
-
-    <!-- id="aravts-list" -->
-
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="loader">
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-		</div>
-	</div>
-    <!-- Preloader end-->
+<div class="page-wraper"> 	
     
 	<!-- Page Content -->
     <div class="page-content">
 		<div class="welcome-area">
 			<div class="join-area">
-				<div class="swiper get-started driver-onboarding" style="background-image: none;">
-					
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<div class="slide-info container">
-								<div class="dz-media mb-4">
-									<img width="200" class="rounded" src="img/1.jpg" alt="">
-								</div>
-								<div class="started">
-									<h3 class="title font-w600">ARAVT list</h3>
-									<p>Join ARAVT and explore opportunities for collaboration within communities as you begin on your journey.</p>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="slide-info container">
-								<div class="dz-media mb-4">
-									<img width="200" class="rounded" src="img/2.jpg" alt=""> 
-								</div>
-								<div class="started">
-									<h3 class="title font-w600">Find Your Place</h3>
-									<p>Use your phone to locate and engage with friendly ARAVT groups and discover what they have to offer.</p>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="slide-info container">
-								<div class="dz-media mb-4">
-									<img width="200" class="rounded" src="img/3.jpg" alt="">
-								</div>
-								<div class="started">
-									<h3 class="title font-w600">Explore the Horizon</h3>
-									<p>View the available groups with details and choose the one that align best with you and your goals.</p>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="slide-info container">
-								<div class="dz-media mb-4">
-									<img width="200" class="rounded" src="img/4.jpg" alt="">
-								</div>
-								<div class="started">
-									<h3 class="title font-w600">Start Connecting</h3>
-									<p>Join the choosen ARAVT for discussions, share your ideas, and help develop collaborative projects.</p>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="slide-info container">
-								<div class="dz-media mb-4">
-									<img width="200" class="rounded" src="img/5.jpg" alt="">
-								</div>
-								<div class="started">
-									<h3 class="title font-w600">Choose Your Project</h3>
-									<p>Explore the available projects and tasks in your ARAVT, start working on them and earning money together!</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-btn">
-						<div class="swiper-pagination style-1 flex-1"></div>
-					</div>
-				</div>
-				<div class="bottom-btn container d-flex align-items-center">
+				
+				<div class="top-btn container d-flex align-items-center">
 					<a href="https://aravt.io" class="btn-link flex-1">Get help</a>
 					<div class="" id="ton-connect"></div>    
 					<!-- <a href="#" class="btn btn-primary btn-sm">Login</a> -->
 				</div>
-				
+
+				<div class="container">
+					<div id=""></div>
+
+					<div class="row">
+						<div class="col-xs-12 col-sm-offset-3 col-sm-6">
+							<div class="panel panel-default">
+								<div class="panel-heading c-list">
+									<span class="h1">List of Aravts</span>
+									
+									<!-- <ul class="pull-right c-controls">
+										<li><a href="#add-aravt" data-toggle="tooltip" data-placement="top" title="Add Aravt">+</a></li>
+									</ul> -->
+								</div>
+								<br>
+
+								
+								<ul class="list-group" id="aravts-list">
+
+									<!-- <li class="list-group-item">
+										<div class="col-xs-12 col-sm-3">
+											<img src="http://api.randomuser.me/portraits/men/49.jpg" alt="Scott Stevens" class="img-responsive img-circle" />
+										</div>
+										<div class="col-xs-12 col-sm-9">
+											<span class="name">Scott Stevens</span><br/>
+											<span class="glyphicon glyphicon-map-marker text-muted c-info" data-toggle="tooltip" title="5842 Hillcrest Rd"></span>
+											<span class="visible-xs"> <span class="text-muted">5842 Hillcrest Rd</span><br/></span>
+											<span class="glyphicon glyphicon-earphone text-muted c-info" data-toggle="tooltip" title="(870) 288-4149"></span>
+											<span class="visible-xs"> <span class="text-muted">(870) 288-4149</span><br/></span>
+											<span class="fa fa-comments text-muted c-info" data-toggle="tooltip" title="scott.stevens@example.com"></span>
+											<span class="visible-xs"> <span class="text-muted">scott.stevens@example.com</span><br/></span>
+										</div>
+										<div class="clearfix"></div>
+									</li> -->
+
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
 			
 		</div>
