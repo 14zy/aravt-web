@@ -39,9 +39,33 @@
 
 
 	<script> 
-		const tele = window.Telegram.WebApp; //Initializes the TELEGRAM BOT and
-		//Gets the user's Telegram ID from the Telegram API
-		tele.expand(); //Expands the app on the users' phone to 100% height
+		const tg = window.Telegram.WebApp;
+		tg.expand();
+		tg.enableClosingConfirmation();
+
+		// tg.BackButton.show();
+		// tg.BackButton.onClick(goBack);
+		// // Click Event
+		// const goBack = () => {
+		// 	// Callback code
+		// };
+
+		// tg.showAlert("sample alert", callback);
+		// tg.showPopup({
+    	// 	title: "Sample Title", // Optional
+    	// 	message: "Sample message",
+    	// 	buttons: [{ type: "destructive", text: "oh hell nah" }], // Optional
+  		// },callback);
+
+		// tg.showScanQrPopup({ text: "capture"}, callback );
+
+		// tg.MainButton.setText("buy");
+		// tg.MainButton.show();
+		// tg.MainButton.hide();
+		// tg.MainButton.onClick(callback);
+		// tg.MainButton.offClick(callback);
+
+		
 	</script>
 
 	<script src="https://cdn.jsdelivr.net/npm/eruda"></script>

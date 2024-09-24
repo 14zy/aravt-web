@@ -38,9 +38,9 @@
 	<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
 	<script> 
-		const tele = window.Telegram.WebApp; //Initializes the TELEGRAM BOT and
-		//Gets the user's Telegram ID from the Telegram API
-		tele.expand(); //Expands the app on the users' phone to 100% height
+		const tg = window.Telegram.WebApp;
+		tg.expand();
+		tg.enableClosingConfirmation();
 	</script>
 
 	<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
@@ -67,6 +67,13 @@
                 }
             }
 
+			try {
+				document.getElementById('username').innerHTML = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+			} catch (error) {
+				document.getElementById('username').innerHTML = "Anar Artur";
+			}
+
+			
 			fetchAravts();
 
 			function displayAravts(aravts) {
@@ -103,7 +110,16 @@
 				</div>
 
 				<div class="container">
-					<div id=""></div>
+					<div id="welcome" class="card">
+						
+							<div class="card-body">
+							  🙋‍♂️Welcome to Aravt,
+							  <span id="username">Ruben Babaev</span>!
+							  <br>
+							  You need to join one of the active Aravts to continue.
+							</div>
+						  
+					</div>
 
 					<div class="row">
 						<div class="col-xs-12 col-sm-offset-3 col-sm-6">
@@ -116,7 +132,7 @@
 								</ul>
 							</div>
 							<br>
-							<p>Request to join one of the active Aravts.</p>
+							<p>Apply to one of the active Aravts, before creating yours.</p>
 							<a href="#" class="btn disabled btn-primary btn-sm">Create your Aravt</a>
 						</div>
 						
