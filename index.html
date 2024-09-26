@@ -43,12 +43,10 @@
 		tg.expand();
 		tg.enableClosingConfirmation();
 
-		// tg.BackButton.show();
-		// tg.BackButton.onClick(goBack);
-		// // Click Event
-		// const goBack = () => {
-		// 	// Callback code
-		// };
+		const goBack = () => {
+			history.back();
+		};
+		tg.BackButton.onClick(goBack);
 
 		// tg.showAlert("sample alert", callback);
 		// tg.showPopup({
@@ -92,8 +90,16 @@
     
 	<!-- Page Content -->
     <div class="page-content">
+
 		<div class="welcome-area">
 			<div class="join-area">
+
+				<div class="top-btn container d-flex align-items-center">
+					<a href="https://db.aravt.io" onclick="tg.BackButton.show();" class="btn-link flex-1">Get help</a>
+					<div class="" id="ton-connect"></div>    	
+					<!-- <a href="#" class="btn btn-primary btn-sm">Login</a> -->
+				</div>	
+
 				<div class="swiper get-started driver-onboarding" style="background-image: none;">
 					<br>
 					<div class="swiper-wrapper">
@@ -157,11 +163,7 @@
 						<div class="swiper-pagination style-1 flex-1"></div>
 					</div>
 				</div>
-				<div class="bottom-btn container d-flex align-items-center">
-					<a href="https://db.aravt.io" class="btn-link flex-1">Get help</a>
-					<div class="" id="ton-connect"></div>    	
-					<!-- <a href="#" class="btn btn-primary btn-sm">Login</a> -->
-				</div>	
+				
 			</div>
 			
 		</div>

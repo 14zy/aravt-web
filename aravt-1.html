@@ -41,6 +41,12 @@
 		const tg = window.Telegram.WebApp;
 		tg.expand();
 		tg.enableClosingConfirmation();
+
+		tg.BackButton.show();
+		const goBack = () => {
+			history.back();
+		};
+		tg.BackButton.onClick(goBack);
 	</script>
 
 	<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
