@@ -42,7 +42,8 @@
 		const tg = window.Telegram.WebApp;
 		tg.expand();
 		tg.enableClosingConfirmation();
-
+		
+		tg.BackButton.hide();
 		const goBack = () => {
 			history.back();
 		};

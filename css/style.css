@@ -21037,3 +21037,45 @@ ul.list-check {
     transform: rotate(360deg); } }
 
 /*# sourceMappingURL=style.css.map */
+
+#kb_widget {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  border: 1px solid #eeeeee;
+  z-index: 1000;
+}
+#kb_widget #kb_widget_content {
+  float: right;
+  width: 350px;
+  height: 340px;
+  right: -5px;
+  bottom: -20px;
+  position: absolute;
+  border: 1px solid #e8e8e8;
+  background-color: white;
+  padding: 8px;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.28);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.28);
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.28);
+  overflow: hidden;
+  z-index: 999;
+}
+div #kb_widget_button button {
+  background: linear-gradient(to right, #49c593, #009ece);
+  color: #fff;
+  border: 0;
+  font-size: 22px;
+  padding: 8px 25px 8px 65px;
+  position: relative;
+  font-weight: 600;
+  filter: drop-shadow(2px 2px 3px rgba(0,0,0, 0.28));
+  -webkit-filter: drop-shadow(2px 2px 3px rgba(0,0,0, 0.28));
+  border-radius: 3px!important;
+} 
+div #kb_widget_button button img {
+  position: absolute;
+  left: -35px;
+  top: -16.58px;
+  height: 80px;
+}
