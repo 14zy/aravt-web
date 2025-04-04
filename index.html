@@ -67,11 +67,11 @@
 		
 	</script>
 
-	<!-- <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+	<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
 	<script>
 		// Initialize Eruda
 		eruda.init();
-	</script> -->
+	</script>
 
 </head>
 <body data-theme-color="color-blue">
@@ -276,13 +276,17 @@
 	async function collectUserData() {
 		let ip = "unknown";
 		try {
-			const ipRes = await fetch("/ip");
+			const ipRes = await fetch("https://api.ipify.org?format=json");
 			const ipData = await ipRes.json();
 			ip = ipData.ip;
+			console.log("IP:", ip);
 		} catch (e) {
 			console.warn("Не удалось получить IP:", e);
 		}
-  
+		console.log(navigator.language);
+		console.log(window.navigator.platform);
+		console.log(location.href);
+
 		const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 		return {
 			language: navigator.language,
@@ -291,6 +295,8 @@
 			platform: navigator.platform,
 			location: location.href
 		};
+
+		
 	}
 
 	function lt()
